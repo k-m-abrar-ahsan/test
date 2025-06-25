@@ -8,9 +8,10 @@ const PORT = process.env.PORT || 3000;
 
 // Google Sheets setup
 const auth = new google.auth.GoogleAuth({
-  keyFile: "credentials.json", // Google service account key
+  credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS),
   scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
 });
+
 
 const spreadsheetId = "1LyLycT6mXu87ib6BLDC_Tzxg4CbADH7K9heguyU6rl8/edit?gid=485606227#gid=485606227";
 const sheetName = "VisaData";
