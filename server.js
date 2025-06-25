@@ -11,7 +11,9 @@ const auth = new google.auth.GoogleAuth({
   credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS),
   scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
 });
-
+if (!process.env.GOOGLE_CREDENTIALS) {
+  throw new Error("GOOGLE_CREDENTIALS is not defined. Please set it in Render.");
+}
 
 const spreadsheetId = "1LyLycT6mXu87ib6BLDC_Tzxg4CbADH7K9heguyU6rl8/edit?gid=485606227#gid=485606227";
 const sheetName = "VisaData";
